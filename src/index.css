@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 215 65% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 215 65% 32%;
+
+    --radius: 0.875rem;
+
+    --brand-red: 0 85% 45%;
+    --brand-green: 160 84% 39%;
+    --brand-gold: 43 96% 56%;
+    --brand-navy: 215 65% 32%;
+
+    --sidebar-background: 215 65% 22%;
+    --sidebar-foreground: 220 20% 95%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 215 65% 16%;
+    --sidebar-accent: 215 55% 28%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 215 55% 28%;
+    --sidebar-ring: 43 96% 56%;
+  }
+
+  .dark {
+    --background: 215 50% 8%;
+    --foreground: 220 20% 95%;
+    --card: 215 50% 11%;
+    --card-foreground: 220 20% 95%;
+    --popover: 215 50% 11%;
+    --popover-foreground: 220 20% 95%;
+    --primary: 215 65% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 50% 22%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 215 40% 14%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 160 84% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 220 40% 98%;
+    --border: 215 40% 18%;
+    --input: 215 40% 18%;
+    --ring: 215 65% 38%;
+    --sidebar-background: 215 50% 7%;
+    --sidebar-foreground: 220 20% 95%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 215 70% 20%;
+    --sidebar-accent: 215 40% 14%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 215 40% 14%;
+    --sidebar-ring: 43 96% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(215 65% 32%), hsl(215 65% 24%));
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(43 96% 56%), hsl(33 92% 48%));
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 96% 56%), hsl(33 92% 52%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 70% 30%));
+  }
+
+  .gradient-red {
+    background: linear-gradient(135deg, hsl(0 85% 45%), hsl(0 75% 38%));
+  }
+
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .glass-dark {
+    background: hsl(var(--primary) / 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--primary) / 0.1);
+  }
+
+  .section-glow {
+    position: relative;
+  }
+
+  .section-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--secondary) / 0.3), transparent);
+  }
+
+  .modern-shadow {
+    box-shadow: 0 4px 24px -4px hsl(var(--foreground) / 0.08), 0 0 0 1px hsl(var(--border) / 0.5);
+  }
+
+  .modern-shadow-lg {
+    box-shadow: 0 8px 40px -8px hsl(var(--foreground) / 0.12), 0 0 0 1px hsl(var(--border) / 0.3);
+  }
+}
