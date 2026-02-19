@@ -11,6 +11,7 @@ import AdmissionsSection from "@/components/AdmissionsSection";
 import ParentAccessSection from "@/components/ParentAccessSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
+import GallerySection from "@/components/GallerySection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
         <LiveClassSchedule />
         <FacultySection />
         <TestimonialsSection />
+        <GallerySection />
         <FAQSection />
         <ContactSection />
       </main>

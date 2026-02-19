@@ -1,37 +1,37 @@
-import { Users, Eye, Bell, LogIn, ShieldCheck, BarChart3, Sparkles, UserCheck } from "lucide-react";
+import { Users, Shield, Heart, Wallet, BookOpen, MessageSquare, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import WaveDecoration from "@/components/WaveDecoration";
 
 const features = [
   {
-    icon: UserCheck,
-    title: "Auto Account Creation",
-    description: "When a student submits their application with primary contact details, a parent/guardian account is automatically created. Login credentials are sent via email.",
-  },
-  {
     icon: Users,
-    title: "Multi-Student Dashboard",
-    description: "If multiple students list the same primary contact person, all students are linked to one parent account for a unified overview.",
+    title: "Experienced Teachers",
+    description: "Our teachers are qualified, experienced, and passionate about bringing out the best in every student.",
   },
   {
-    icon: BarChart3,
-    title: "Track Student Progress",
-    description: "View grades, assignment submissions, course completion status, and overall academic performance for each enrolled student.",
+    icon: Shield,
+    title: "Safe & Secure Campus",
+    description: "CCTV monitored premises, secure entry/exit, and a clean hygienic environment for your child.",
   },
   {
-    icon: Bell,
-    title: "Notifications & Alerts",
-    description: "Receive real-time notifications about student activities, upcoming deadlines, grades, and important school announcements.",
+    icon: Heart,
+    title: "Individual Attention",
+    description: "With small class sizes, every student receives the focused guidance they need to thrive.",
   },
   {
-    icon: LogIn,
-    title: "Login as Student",
-    description: "Parents can switch to their student's view to check subject progress, upcoming classes, and learning materials directly.",
+    icon: Wallet,
+    title: "Affordable Fees",
+    description: "Quality education shouldn't be a luxury. Our fee structure is designed to be accessible for families across the community.",
   },
   {
-    icon: ShieldCheck,
-    title: "Secure & Private",
-    description: "Each parent account is securely linked only to their designated students, ensuring privacy and data protection at all levels.",
+    icon: BookOpen,
+    title: "Strong Values System",
+    description: "We emphasize respect, honesty, and responsibility alongside academic learning.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Active Parent Engagement",
+    description: "Regular PTMs, open-door policy, and transparent communication keep parents involved in their child's journey.",
   },
 ];
 
@@ -40,56 +40,28 @@ const ParentAccessSection = () => {
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section id="parent-access" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background */}
+    <section id="why-choose" className="py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 gradient-navy" />
       <WaveDecoration position="top" flip />
       <WaveDecoration position="bottom" />
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)", backgroundSize: "30px 30px" }} />
       <div className="absolute top-20 right-0 w-96 h-96 bg-secondary/[0.08] rounded-full blur-[120px]" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-accent/[0.06] rounded-full blur-[100px]" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        {/* Header */}
         <div ref={ref} className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Parent Portal
+            Why Choose Us
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-display font-bold text-primary-foreground mb-4">
-            Parent & Guardian{" "}
-            <span className="text-gradient-gold">Access</span>
+            Why Choose{" "}
+            <span className="text-gradient-gold">Kingsbridge Academy?</span>
           </h2>
           <p className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto leading-relaxed text-[15px]">
-            Stay connected with your child's education. Monitor progress, receive notifications, and access the LMS — all from your own dedicated parent account.
+            Parents choose us because we provide a safe, nurturing, and academically rigorous environment that brings out the best in every child.
           </p>
         </div>
 
-        {/* How it Works Mini-Flow */}
-        <div className="max-w-3xl mx-auto mb-16">
-          <div className="glass-card-dark rounded-2xl p-6 md:p-8 bg-primary-foreground/[0.06] backdrop-blur-md border border-primary-foreground/[0.1]">
-            <h3 className="font-display font-bold text-primary-foreground text-lg mb-6 text-center">How It Works</h3>
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2">
-              {[
-                { step: "1", text: "Student fills application with parent details" },
-                { step: "2", text: "Parent account auto-created & credentials emailed" },
-                { step: "3", text: "Parent logs in to track all linked students" },
-              ].map((item, i) => (
-                <div key={i} className="flex-1 flex items-center gap-3 sm:flex-col sm:text-center">
-                  <div className="w-10 h-10 rounded-full gradient-gold flex items-center justify-center text-secondary-foreground font-bold text-sm shrink-0 shadow-lg shadow-secondary/20">
-                    {item.step}
-                  </div>
-                  <p className="text-primary-foreground/80 text-sm leading-relaxed">{item.text}</p>
-                  {i < 2 && (
-                    <div className="hidden sm:block w-8 h-[2px] bg-secondary/30 shrink-0" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Feature Cards */}
         <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {features.map((feature, i) => (
             <div

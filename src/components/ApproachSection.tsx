@@ -1,32 +1,32 @@
-import { Monitor, BookOpen, Lightbulb, Globe, ArrowDown, Sparkles } from "lucide-react";
+import { BookOpen, Lightbulb, ClipboardCheck, Heart, ArrowDown, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const quadrants = [
   {
-    icon: Monitor,
-    title: "Interactive E-Learning",
-    description: "Live virtual classrooms with real-time teacher engagement, collaborative discussions, and structured lesson delivery.",
+    icon: BookOpen,
+    title: "Conceptual Learning",
+    description: "We go beyond rote memorization. Our teachers use real-world examples, visual aids, and hands-on activities to build deep understanding.",
     gradient: "gradient-navy",
     num: "01",
   },
   {
-    icon: BookOpen,
-    title: "Engaging E-Content",
-    description: "On-demand digital resources including video lessons, animations, quizzes, and reading materials.",
+    icon: Lightbulb,
+    title: "Activity-Based Teaching",
+    description: "From science experiments to creative projects, students learn by doing — making every lesson engaging and memorable.",
     gradient: "gradient-gold",
     num: "02",
   },
   {
-    icon: Lightbulb,
-    title: "Innovative Enhancements",
-    description: "14 unique enrichment activities that go beyond the core curriculum — developing critical thinking and creativity.",
+    icon: ClipboardCheck,
+    title: "Regular Assessments",
+    description: "Periodic tests, class quizzes, and term examinations ensure students stay on track and parents stay informed about progress.",
     gradient: "gradient-accent",
     num: "03",
   },
   {
-    icon: Globe,
-    title: "Activity-Based Learning",
-    description: "Hands-on projects, real-world case studies, and practical assessments connecting theory with applications.",
+    icon: Heart,
+    title: "Values & Discipline",
+    description: "Morning prayers, value education classes, and a structured daily routine instill discipline and good character from an early age.",
     gradient: "gradient-navy",
     num: "04",
   },
@@ -43,19 +43,17 @@ const ApproachSection = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ${
-            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-16 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             Our Approach
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-display font-bold text-foreground">
-            The Four Quadrant Approach
+            Our Approach to Learning
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed text-[15px]">
-            A holistic educational model integrating technology, content, engagement, and hands-on experience.
+            A balanced teaching philosophy that combines academic rigor with character development and creative expression.
           </p>
         </div>
 
@@ -83,10 +81,10 @@ const ApproachSection = () => {
 
         <div className="text-center mt-12">
           <a
-            href="#curriculum"
+            href="#academics"
             className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:gap-3 transition-all group"
           >
-            Explore Our Curriculum
+            Explore Our Academics
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
           </a>
         </div>

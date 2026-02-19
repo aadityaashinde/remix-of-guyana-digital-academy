@@ -1,14 +1,12 @@
-import logoDark from "@/assets/logo-transparent.png";
-import logoWhite from "@/assets/logo-white.png";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, LogIn, GraduationCap } from "lucide-react";
+import { Menu, X, Phone, Camera, GraduationCap } from "lucide-react";
 
 const navLinks = [
   { label: "About Us", href: "#about" },
-  { label: "Admission", href: "#admissions" },
-  { label: "Curriculum", href: "#curriculum" },
-  { label: "Live Classes", href: "#schedule" },
+  { label: "Academics", href: "#academics" },
+  { label: "Admissions", href: "#admissions" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Faculty", href: "#faculty" },
   { label: "FAQs", href: "#faqs" },
   { label: "Contact Us", href: "#contact" },
@@ -28,10 +26,8 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // After navigating to home with a hash, scroll to the target section
   useEffect(() => {
     if (isHomePage && location.hash) {
-      // Small delay to let the page render
       const timer = setTimeout(() => {
         const el = document.querySelector(location.hash);
         if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -59,8 +55,14 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 md:h-[68px]">
-        <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} className="flex items-center gap-3 shrink-0 group">
-          <img src={(scrolled || !isHomePage) ? logoDark : logoWhite} alt="Guyana Digital School" className="h-10 md:h-11 group-hover:scale-105 transition-transform" />
+        <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} className="flex items-center gap-2 shrink-0 group">
+          <div className="w-9 h-9 rounded-lg gradient-navy flex items-center justify-center">
+            <GraduationCap className="w-5 h-5 text-primary-foreground" />
+          </div>
+          <div className="flex flex-col">
+            <span className={`text-sm font-bold leading-tight ${scrolled || !isHomePage ? "text-foreground" : "text-primary-foreground"}`}>Kingsbridge Academy</span>
+            <span className={`text-[9px] tracking-wider uppercase ${scrolled || !isHomePage ? "text-muted-foreground" : "text-primary-foreground/60"}`}>Pirpainti, Bhagalpur</span>
+          </div>
         </a>
 
         {/* Desktop nav */}
@@ -84,22 +86,20 @@ const Navbar = () => {
         {/* CTA buttons */}
         <div className="hidden lg:flex items-center gap-2.5">
           <a
-            href="https://learn.digitalschool.moe.edu.gy/login/signup.php"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "#contact")}
             className="gradient-gold text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-[13px] hover:opacity-90 transition-opacity shadow-sm inline-flex items-center gap-2"
           >
-            <GraduationCap className="w-3.5 h-3.5" />
-            Apply Now
+            <Phone className="w-3.5 h-3.5" />
+            Enquire Now
           </a>
           <a
-            href="https://learn.digitalschool.moe.edu.gy/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#gallery"
+            onClick={(e) => handleNavClick(e, "#gallery")}
             className="gradient-navy text-primary-foreground font-semibold px-5 py-2 rounded-lg text-[13px] hover:opacity-90 transition-opacity shadow-sm inline-flex items-center gap-2"
           >
-            <LogIn className="w-3.5 h-3.5" />
-            Login
+            <Camera className="w-3.5 h-3.5" />
+            Virtual Tour
           </a>
         </div>
 
@@ -126,23 +126,20 @@ const Navbar = () => {
           ))}
           <div className="flex flex-col gap-2 pt-3 border-t border-border/30 mt-2">
             <a
-              href="https://learn.digitalschool.moe.edu.gy/login/signup.php"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
+              href="#contact"
+              onClick={(e) => { handleNavClick(e, "#contact"); setOpen(false); }}
               className="gradient-gold text-secondary-foreground font-semibold px-5 py-2.5 rounded-lg text-sm text-center shadow-sm inline-flex items-center gap-2 justify-center"
             >
-              <GraduationCap className="w-3.5 h-3.5" />
-              Apply Now
+              <Phone className="w-3.5 h-3.5" />
+              Enquire Now
             </a>
             <a
-              href="https://learn.digitalschool.moe.edu.gy/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#gallery"
+              onClick={(e) => { handleNavClick(e, "#gallery"); setOpen(false); }}
               className="gradient-navy text-primary-foreground font-semibold px-5 py-2.5 rounded-lg text-sm text-center shadow-sm inline-flex items-center gap-2 justify-center"
             >
-              <LogIn className="w-3.5 h-3.5" />
-              Login
+              <Camera className="w-3.5 h-3.5" />
+              Virtual Tour
             </a>
           </div>
         </nav>
